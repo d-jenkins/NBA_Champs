@@ -1,13 +1,14 @@
 
 -- Create NBA Champs Table
 CREATE TABLE all_stats (
+  id SERIAL PRIMARY KEY,	
   team TEXT,
-  Season DATE,
-  Rel_Pace  DECIMAL(1),
-  Rel_ORtg DECIMAL(1),
-  Rel_DRtg DECIMAL(1),
-  Chip TEXT,
-  Predicted INT
+  season TEXT,
+  Rel_Pace  DECIMAL,
+  Rel_ORtg DECIMAL,
+  Rel_DRtg DECIMAL,
+  Chip TEXT
+--   Predicted INT
 );
 
 
