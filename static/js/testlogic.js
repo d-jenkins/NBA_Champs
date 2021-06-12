@@ -24,18 +24,18 @@ var tooltip = d3.select("#tooltip")
 var chartGroup = svg.append("g")
     .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-d3.csv("./usa_ballers.csv").then((nbaPlayers) => {
-    console.log(nbaPlayers);
+d3.csv("/data/champs.csv").then((champs) => {
+    console.log(champs);
 
-    nbaPlayers.forEach((data) => {
-        parseFloat(data.name);
-        //data.ppg = +data.ppg;
-        //data.apg = +data.apg;
-        data.PTS = +data.PTS;
+    champs.forEach((champs) => {
+        parseFloat(champs.name);
+        //data.team= +data.team;
+        //data.chip = +data.chip;
+        champs.team = +data.team;
     });
 
     var xBandScale = d3.scaleBand()
-        .domain(nbaPlayers.map(data => data.name))
+        .domain(champs.map(data => data.name))
         .range([0, chartWidth]);
     //.padding(0);
 
@@ -58,26 +58,23 @@ d3.csv("./usa_ballers.csv").then((nbaPlayers) => {
         .call(bottomAxis);
 
     chartGroup.selectAll(".bar")
-        .data(nbaPlayers)
+        .data(champs)
         .enter()
         .append("rect")
         .classed("bar", true)
         .attr("width", data => barWidth)
-        .attr("height", data => data.PTS * scaleY)
+        .attr("height", data => data.team * scaleY)
         .attr("x", (data, i) => i * (barWidth + barSpacing))
-        .attr("y", data => chartHeight - data.PTS * scaleY);
+        .attr("y", data => chartHeight - data.champs * scaleY);
 
     chartGroup.append("text")
         .attr("class", "label")
         .attr("y", barHeight / 2)
         .attr("dy", ".35em") //vertical align middle
         .text(function(d) {
-            return d.hometown;
+            return d.chip;
         }).each(function() {
             labelWidth = Math.ceil(Math.max(labelWidth, this.getBBox().width));
         });
 
-
-}).catch(function(error) {
-    console.log(error)
 });
