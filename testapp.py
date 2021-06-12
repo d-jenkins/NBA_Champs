@@ -1,59 +1,33 @@
 # import dependencies
-import numpy as np
-
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
-
-from flask import Flask, jsonify
-
-# Import pgadmin password from python file
-from champs import pw
-
-#################################################
-# Create Database Connection
-#################################################
-engine = create_engine(f'postgresql://postgres:{pw}@localhost:5432/nbachamps')
-#engine = create_engine(f'postgresql://{connection_string}')
-
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, jsonify, render_template, request, redirect
+import os
 
 ##########################################################
-# Setup Database
-##########################################################
-
-# engine = create_engine("nbaChamps")
-
-# reflect an existing database into a new model
-Base = automap_base()
-# reflect the tables
-Base.prepare(engine, reflect=True)
-
-# Create references to tables
-nbaChamps = Base.classes.placeholder
-
-
-##########################################################
-# Setup Flask
-##########################################################
-
 # Create an app
 app = Flask(__name__)
 
 ##########################################################
-# Decorate Flask Routes
+# Connect to Postgres
 ##########################################################
 
-# 3. Define the route
+
+app.config["DATABASE_URL"] = "'postgresql://postgres:{pw}@localhost:5432/nbachamps'"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+
+
 @app.route("/")
 def home():
-    print("Server received request for 'home' page...")
-    return "Welcome to my 'Home' page! This is where I will introduce my website or project"
+    return render_template("/index.html")
 
-@app.route("/index")
-def about():
-    print("Server received request for 'index' page...")
-    return "Welcome to my 'About' page!"
 
-if __name__ == "__main__":
+@app.route('/<name>')
+def hello_name(name):
+    return "Hello {}!".format(name)
+
+
+if __name__ == '__main__':
     app.run(debug=True)
