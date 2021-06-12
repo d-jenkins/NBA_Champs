@@ -50,9 +50,9 @@ def home():
     print("Server received request for 'home' page...")
     return "Welcome to my 'Home' page! This is where I will introduce my website or project"
 
-@app.route("/about")
+@app.route("/index")
 def about():
-    print("Server received request for 'About' page...")
+    print("Server received request for 'index' page...")
     return "Welcome to my 'About' page!"
 
 if __name__ == "__main__":
