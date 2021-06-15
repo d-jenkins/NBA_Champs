@@ -24,7 +24,9 @@ var tooltip = d3.select("#tooltip")
 var chartGroup = svg.append("g")
     .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-d3.json("/getdata").then((champs) => {
+
+d3.csv("/data/champs.csv").then((champs) => {
+
     console.log(champs);
 
     champs.forEach((champs) => {

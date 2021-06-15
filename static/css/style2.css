@@ -1,0 +1,81 @@
+#mySidenav a {
+    position: fixed;
+    left: -150px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 165px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    font-family: helvetica !important;
+    font-weight: bold;
+}
+
+#mySidenav a:hover {
+    left: 0;
+}
+
+#state {
+    top: 80px;
+    background-color: #234191;
+    border-style: solid;
+    border-color: #d32d04;
+}
+
+#teams {
+    top: 140px;
+    background-color: white;
+    border-style: solid;
+    font-size: 20px !important;
+    color: #234191 !important;
+}
+
+#home {
+    top: 260px;
+    background-color: #234191;
+    color: white !important;
+    border-style: solid;
+    border-color: #d32d04;
+}
+
+h1 {
+    font-size: 75px;
+    color: #234191;
+    font-family: helvetica !important;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 60px;
+    background-color: white;
+    padding-left: 20px;
+}
+
+#footnote {
+    font-size: 12px;
+    color: #234191;
+    font-family: helvetica !important;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 60px;
+    background-color: white;
+    padding-left: 20px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px !important;
+    background-color: #d32d04;
+    color: white;
+    text-align: center;
+    font-family: helvetica!important;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+@font-face {
+    font-family: myFont;
+    src: url(www.freefontsdownload.net.url/images/LOGOS/HelveticaBlack.ttf);
+}
