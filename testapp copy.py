@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import numpy as np
 
 import sqlalchemy
@@ -26,24 +25,16 @@ Base.prepare(engine, reflect=True)
 # Save reference to the table
 all_stats = Base.classes.all_stats
 
-=======
 import psycopg2
 import sys
 from  flask import Flask,render_template, jsonify
 from flask_marshmallow import Marshmallow
->>>>>>> Stashed changes
 
 
 ##########################################################
 # Create an app
 app = Flask(__name__)
 
-<<<<<<< Updated upstream
-##########################################################
-# Connect to Postgres
-##########################################################
-
-=======
 class stats(db.Model):
 
 @app.route('/')
@@ -64,4 +55,3 @@ def send_data():
 
 if __name__ == '__main__':
     app.run(debug=True)
->>>>>>> Stashed changes
