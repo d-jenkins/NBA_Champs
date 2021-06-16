@@ -46,7 +46,7 @@ class Encoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, decimal.Decimal): return float(obj)
 
-@app.route("/champs")
+@app.route("/champstest")
 def index():
     results = db.session.query(champs).all()
     results = json.dumps(results, cls = Encoder)
