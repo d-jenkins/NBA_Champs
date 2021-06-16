@@ -10,7 +10,7 @@ import decimal
 import json
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData
 
 ##########################################################
 # Create an app
@@ -34,7 +34,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
 # champs = db.Table('champs', db.metadata, autoload=True, autoload_with=db.engine)
-Base = automap_base()
+
+
+metadata = MetaData()
+metadata.reflect(db.engine, only=['champs'])
+Base = automap_base(metadata=metadata)
 Base.prepare(db.engine, reflect=True)
 Champs = Base.classes.champs
 
@@ -61,8 +65,10 @@ def index():
     for data in results:
         champs_dict.append(data)
         champs_d = json.dumps(results, cls = Encoder)
-        print(data)
-    return jsonify(data)
+        print(col)
+        return ''
+    
+    # return jsonify(data)
     # return champs_dict
 
 
