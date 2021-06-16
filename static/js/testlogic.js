@@ -25,12 +25,12 @@ var chartGroup = svg.append("g")
     .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
 
-d3.csv("/data/champs.csv").then((champs) => {
+d3.json("/champs").then((champs) => {
 
     console.log(champs);
 
-    champs.forEach((champs) => {
-        parseFloat(champs.name);
+    champs.forEach((row) => {
+        parseFloat(row.name);
         //data.team= +data.team;
         //data.chip = +data.chip;
         champs.team = +data.team;

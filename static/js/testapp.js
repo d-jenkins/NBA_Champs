@@ -1,4 +1,4 @@
-d3.csv("data/champs.csv").then(function(nbaTeams) {
+d3.json("/champs").then(function(nbaTeams) {
 
     console.log(nbaTeams);
 

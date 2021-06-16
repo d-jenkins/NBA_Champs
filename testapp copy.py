@@ -34,10 +34,12 @@ from flask_marshmallow import Marshmallow
 ##########################################################
 # Create an app
 app = Flask(__name__)
+db = SQLAlchemy(app)
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg2://postgres:MildredChase84!@nba-champs.c6ka6apltccn.us-east-2.rds.amazonaws.com:5432/nbaChamps"
 
 class stats(db.Model):
 
-@app.route('/')
+@app.route('/champsTests')
 def send_data():
     # conn = psycopg2.connect("dbname=nbaChamps user=postgres password=MildredChase84!")
     conn = psycopg2.connect(
