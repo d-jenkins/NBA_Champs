@@ -2,39 +2,50 @@
 from flask import Flask
 from flask.wrappers import Response
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, jsonify, render_template, request, redirect
+import psycopg2
+from flask import Flask, render_template, request, redirect
+from flask_marshmallow import Marshmallow
 import os
+import decimal
 import json
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine
 
 ##########################################################
 # Create an app
 app = Flask(__name__)
-
+db = SQLAlchemy(app)
 ##########################################################
 # Connect to Postgres
 ##########################################################
 
 
-app.config["DATABASE_URL"] = "postgresql://postgres:{pw}@localhost:5432/nbachamps"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg2://postgres:MildredChase84!@nba-champs.c6ka6apltccn.us-east-2.rds.amazonaws.com:5432/nbaChamps"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+
+Base = automap_base()
+engine = create_engine("postgresql+psycopg2://postgres:MildredChase84!@nba-champs.c6ka6apltccn.us-east-2.rds.amazonaws.com:5432/nbaChamps")
+
+Base.prepare(engine, reflect=True)
+Champs = Base.classes.champs
+
+session = Session(engine)
+
+champs_results = session.query(Champs).all()
+print (champs_results)
+
+from sqlalchemy import inspect
+insp = inspect(Champs)
+insp.columns
+col = list(insp.columns)
+print(col)
 
 
+@app.route('/')
+def index():
+    db.session.query(champs_results)
 
-@app.route("/",methods=['GET'])
-def home(request):
-    stats = []
-    with db.connect() as conn:
-        all_stats = conn.execute("select * from all_stats ").fetchall()
-        stats = list(all_stats)
-    data = {'stats': stats}
-    resp = Response(json.dumps(data, status=200, mimetype='application/json')
-    return render_template("index.html", stats=stats)
-
-
-# @app.route('/<name>')
-# def hello_name(name):
-#     return "Hello {}!".format(name)
 
 
 if __name__ == '__main__':
