@@ -1,0 +1,126 @@
+.pic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    position: center;
+    size: cover;
+    transition: all 0.3s ease;
+}
+
+.background {
+    background-color: black !important;
+}
+
+#teams {
+    top: 140px;
+    background-color: white;
+    border-style: solid;
+    font-size: 20px !important;
+    color: #234191 !important;
+}
+
+#home {
+    top: 260px;
+    background-color: #234191;
+    color: white !important;
+    border-style: solid;
+    border-color: #d32d04;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #234191;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 10px;
+}
+
+.pic3 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    width: 50%;
+}
+
+.text {
+    padding-top: 40px;
+}
+
+h1 {
+    font-size: 75px;
+    color: #570179;
+    font-family: Helvetica !important;
+    font-style: italic !important;
+    font-weight: bold !important;
+    margin-bottom: 60px;
+    background-color: white;
+    padding-left: 20px;
+}
+
+#chart {
+    position: fixed;
+    left: 100px;
+    right: 0px;
+    top: 100px;
+    bottom: 0px;
+}
+
+path.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+
+circle {
+    fill: rgb(225, 208, 0) !important;
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+text {
+    fill: #000;
+    font-family: Helvetica !important;
+    font-style: italic !important;
+    font-weight: bold !important;
+    pointer-events: none;
+}
+
+.bar {
+    fill: rgb(212, 120, 0);
+}
+
+.bar:hover {
+    fill: rgb(51, 50, 48);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#map,
+body,
+html {
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* set map, body, and html to 100% of the screen size */
+
+#map,
+body,
+html {
+    height: 100%;
+}
