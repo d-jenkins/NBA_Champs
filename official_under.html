@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v2.min.js"></script>
+    <title>CHAMPIONS?</title>
+    <link rel="icon" href="images/LOGOS/NBA.png" type="image/icon type">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <body style="background-color: transparent;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+
+                    <h1>
+                        <div class="jumbotron text-center" style="background-image: url(https://content.sportslogos.net/logos/6/981/full/2111__nba_playoffs-primary-2018.png); background-color: transparent; background-size: contain; background-repeat: no-repeat; height: 100%"></div>
+                        <!--<div style="color:#234191; font-size: 20pt">BOOM OR BUST??</div>-->
+                    </h1>
+
+                    <!--<br><a class="btn btn-sm text-white" style="background-color:#d32d04; font-family:helvetica; font-weight: bold; font-style: italic" href="index.html" role="button">-->
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <h1>
+                    <h2 class="TEAMS" style="font-size: 18pt; color:#234191; font-family: helvetica; font-weight: bold; font-style: italic">UNDERACHIEVERS:</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <!--<h2 class="TEAMS" style="font-size: 12pt; color:#234191; font-family: helvetica; font-weight: bold; font-style: italic">SEASON</h2>-->
+            <select id="Team"></select><br>
+            <script type="text/javascript" onload="startTimer()">
+                function displayNextImage() {
+                    x = (x === images.length - 1) ? 0 : x + 1;
+                    document.getElementById("img").src = images[x];
+                }
+
+                function displayPreviousImage() {
+                    x = (x <= 0) ? images.length - 1 : x - 1;
+                    document.getElementById("img").src = images[x];
+                }
+
+                function startTimer() {
+                    setInterval(displayNextImage, 5000);
+                }
+
+                var images = [],
+                    x = -1;
+
+                images[0] = "images/LOGOS/76ERS.gif";
+                images[1] = "images/LOGOS/BLAZERS.gif";
+                images[2] = "images/LOGOS/BROOKLYN.png";
+                images[3] = "images/LOGOS/BUCKS.gif";
+                images[4] = "images/LOGOS/BULLS.png";
+                images[5] = "images/LOGOS/CAVS.gif";
+                images[6] = "images/LOGOS/GS.gif";
+                images[7] = "images/LOGOS/hawks.gif";
+                images[8] = "images/LOGOS/HEAT.gif";
+                images[9] = "images/LOGOS/JAZZ.gif";
+                images[10] = "images/LOGOS/LAKERS.png";
+                images[11] = "images/LOGOS/MAGIC.gif";
+                images[12] = "images/LOGOS/MAVS.png";
+                images[13] = "images/LOGOS/MEMPHIS.png";
+                images[14] = "images/LOGOS/NUGGETS.gif";
+                images[15] = "images/LOGOS/PACERS.gif";
+                images[16] = "images/LOGOS/PELICANS.png";
+                images[17] = "images/LOGOS/PISTONS.gif";
+                images[18] = "images/LOGOS/RAPTORS.png";
+                images[19] = "images/LOGOS/ROCKETS.gif";
+                images[20] = "images/LOGOS/SPURS.png";
+                images[21] = "images/LOGOS/SUNS.gif";
+                images[22] = "images/LOGOS/THUNDER.png";
+                images[23] = "images/LOGOS/TIMBERWOLVES.gif";
+                images[24] = "images/LOGOS/WIZARDS.png";
+                images[25] = "images/LOGOS/CLIPPERS.png";
+                images[26] = "images/LOGOS/BOBCATS.gif";
+                images[27] = "images/LOGOS/BOSTON.png";
+                images[28] = "images/LOGOS/HORNETS.png";
+                images[29] = "images/LOGOS/NBA.png";
+            </script>
+
+            <body onload="startTimer()">
+                <img id="img" src="images/LOGOS/BUCKS.gif" style="float: center; opacity: 0.15" />
+                <div class="container">
+                    <div class="row">
+                        <h1>Underachieving teams:</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </body>
+            <div>
+                <div id='image'>
+                    <svg id="chart" width="650" height="400"></svg>
+                </div>
+                <div id='tooltip'></div>
+            </div>
+            <div id="footnote">
+                <p>DATA FROM: https://www.basketball-reference.com/<br>IMAGES FROM: NBA.COM</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        < </div>
+            </div>
+
+            <style src="static/css/style2.css"></style>
+
+            <!-- <script src="data/"></script> -->
+            <script src="static/js/under.js"></script>
+    </body>
+</body>
+<footer class="footer">
+    <span class="bottom"> © 2021 Derell Jenkins Kelvin Walls and Eric Nietzer</span>
+</footer>
+
+
+</html>
